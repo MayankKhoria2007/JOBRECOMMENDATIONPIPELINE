@@ -1,0 +1,7 @@
+redis
+sentence-transformers
+numpy 
+scikit-learn
+fastapi
+uvicorn[standard]
+torch
