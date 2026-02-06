@@ -1,3 +1,4 @@
+import os
 import redis
 import numpy as np
 from sklearn.neighbors import NearestNeighbors
@@ -5,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 
 class content_based_recommendation:
   def __init__(self,k):
-    self.r=redis.Redis(host="redis-18193.c301.ap-south-1-1.ec2.cloud.redislabs.com",port=18193,password="BupHh5wCElXHWdseCGcqt55lDfqSwEcd",ssl=False,decode_responses=False)
+    self.r=redis.Redis(host=os.getenv("REDIS_HOST"),port=int(os.getenv("REDIS_PORT")),password=os.getenv("REDIS_PASSWORD"),ssl=False,decode_responses=False)
     self.model=SentenceTransformer("all-MiniLM-L6-v2")
     self.knn=NearestNeighbors(n_neighbors=k,metric="cosine")
     self.job_descriptions=[]
@@ -97,4 +98,5 @@ def main():
   
 if __name__=="__main__":
   main()
+
 
