@@ -1,3 +1,4 @@
+import os
 import redis
 from sentence_transformers import SentenceTransformer
 import numpy as np
@@ -287,4 +288,5 @@ def main():
     print(ob.r.json().get("k")["embedding"])
 
 if __name__ == "__main__":
+
   main()
