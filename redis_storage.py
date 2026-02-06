@@ -5,7 +5,7 @@ import numpy as np
 
 class redis_storage:
   def __init__(self):
-    self.r=redis.Redis(host="redis-18193.c301.ap-south-1-1.ec2.cloud.redislabs.com",port=18193,password="BupHh5wCElXHWdseCGcqt55lDfqSwEcd",ssl=False,decode_responses=False)
+    self.r=redis.Redis(host=os.getenv("REDIS_HOST"),port=int(os.getenv("REDIS_PORT")),password=os.getenv("REDIS_PASSWORD"),ssl=False,decode_responses=False)
     self.model=SentenceTransformer("all-MiniLM-L6-v2")
 
 
@@ -290,3 +290,4 @@ def main():
 if __name__ == "__main__":
 
   main()
+
