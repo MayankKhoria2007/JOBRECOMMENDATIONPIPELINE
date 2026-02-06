@@ -1,0 +1,10 @@
+LIBRARIES:
+redis
+sentence-transformers
+numpy 
+sklearn
+fastapi
+uvicorn
+Typing
+websockets
+pydantic
